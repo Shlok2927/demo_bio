@@ -99,8 +99,11 @@ export default function ChatInterface({
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/biosarthi-logo-2sEzrkSriSDGPLl9DwFUDoGep5VCwn.png"
           alt="BioSarthi Logo"
-          className="w-32 h-auto mb-8"
+          width={128} // Set explicit width in pixels
+          height={128} // Set explicit height in pixels (adjust as needed)
+          className="w-32 h-auto mb-8" // Use Tailwind for responsive behavior
         />
+
         <div className="flex-grow flex flex-col justify-center">
           <h1 className="text-3xl font-extrabold mb-4 text-green-600 tracking-tight">
             BioSarthi: Your Biogas Expert

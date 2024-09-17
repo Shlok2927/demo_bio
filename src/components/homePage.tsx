@@ -73,7 +73,7 @@ export default function HomePage() {
     };
 
     rotateSuggestions();
-    const intervalId = setInterval(rotateSuggestions, 5000);
+    const intervalId = setInterval(rotateSuggestions, 50000);
 
     return () => clearInterval(intervalId);
   }, [allSuggestions]);
@@ -158,8 +158,11 @@ export default function HomePage() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/biosarthi-logo-2sEzrkSriSDGPLl9DwFUDoGep5VCwn.png"
               alt="BioSarthi Logo"
-              className="mx-auto mb-8 w-64 h-auto"
+              width={128} // Set explicit width in pixels
+              height={128} // Set explicit height in pixels (adjust as needed)
+              className="mx-auto w-64 mb-8 h-auto"
             />
+
             <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-green-600">
               Your Gateway to Biogas Innovation
             </h1>

@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-
+    console.log("this is message tanb:", messages);
     // Stream the conversation using GPT-4 Turbo model
     const result = await streamText({
       model: openai("gpt-4-turbo"), // GPT-4 Turbo model specified
