@@ -131,7 +131,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 overflow-hidden">
+    <div className="h-screen relative bg-white text-gray-800 overflow-hidden">
       <header className="fixed w-full z-10 bg-white bg-opacity-90 backdrop-blur-sm">
         <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold">
@@ -158,7 +158,7 @@ export default function HomePage() {
           />
           <div className="z-10 text-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/biosarthi-logo-2sEzrkSriSDGPLl9DwFUDoGep5VCwn.png"
+              src="/biosarthi-logo-small.png"
               alt="BioSarthi Logo"
               width={128} // Set explicit width in pixels
               height={128} // Set explicit height in pixels (adjust as needed)
@@ -224,7 +224,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
+          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-4">
             {["About", "Marketplace", "Patent", "Contact"].map((item) => (
               <Link
                 key={item}

@@ -97,7 +97,7 @@ export default function ChatInterface({
       {/* Left static section */}
       <div className="w-[30%] bg-white p-6 flex flex-col shadow-lg rounded-r-3xl">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/biosarthi-logo-2sEzrkSriSDGPLl9DwFUDoGep5VCwn.png"
+          src="/biosarthi-logo-small.png"
           alt="BioSarthi Logo"
           width={128} // Set explicit width in pixels
           height={128} // Set explicit height in pixels (adjust as needed)
