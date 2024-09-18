@@ -94,7 +94,7 @@ export default function HomePage() {
     };
 
     rotateSuggestions();
-    const intervalId = setInterval(rotateSuggestions, 50000);
+    const intervalId = setInterval(rotateSuggestions, 5000);
 
     return () => clearInterval(intervalId);
   }, [allSuggestions]);
