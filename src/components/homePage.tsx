@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,25 +16,46 @@ export default function HomePage() {
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const allSuggestions = [
-    "What is biogas?",
-    "How is biogas produced?",
-    "Benefits of biogas?",
-    "Biogas vs natural gas?",
-    "Biogas and greenhouse gases?",
-    "Materials for biogas production?",
-    "Biogas in rural areas?",
-    "Biogas plant setup cost?",
-    "Biogas energy efficiency?",
-    "Biogas in transportation?",
-  ];
+  // Memoize the allSuggestions array
+  const allSuggestions = useMemo(
+    () => [
+      "What is biogas?",
+      "How is biogas produced?",
+      "Benefits of biogas?",
+      "Biogas vs natural gas?",
+      "Biogas and greenhouse gases?",
+      "Materials for biogas production?",
+      "Biogas in rural areas?",
+      "Biogas plant setup cost?",
+      "Biogas energy efficiency?",
+      "Biogas in transportation?",
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const stopListening = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setIsSpeaking(false);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (inputText.trim()) {
+        setShowChat(true);
+      }
+    }
+  };
 
+  const handleSpeakClick = () => {
+    if (isSpeaking) {
+      stopListening();
+    } else {
+      startListening();
+    }
+  };
   useEffect(() => {
     if (
       (typeof window !== "undefined" && "SpeechRecognition" in window) ||
@@ -64,7 +85,7 @@ export default function HomePage() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [stopListening]);
 
   useEffect(() => {
     const rotateSuggestions = () => {
@@ -82,25 +103,6 @@ export default function HomePage() {
     if (recognitionRef.current) {
       recognitionRef.current.start();
       setIsSpeaking(true);
-    }
-  };
-
-  const stopListening = () => {
-    if (recognitionRef.current) {
-      recognitionRef.current.stop();
-      setIsSpeaking(false);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      if (inputText.trim()) {
-        setShowChat(true);
-      }
-    }
-  };
-
-  const handleSpeakClick = () => {
-    if (isSpeaking) {
-      stopListening();
-    } else {
-      startListening();
     }
   };
 
