@@ -156,14 +156,24 @@ export default function HomePage() {
               transform: `translateY(${scrollY * 0.5}px)`,
             }}
           />
-          <div className="z-10 text-center">
-            <Image
-              src="/biosarthi-logo-small.png"
-              alt="BioSarthi Logo"
-              width={128} // Set explicit width in pixels
-              height={128} // Set explicit height in pixels (adjust as needed)
-              className="mx-auto w-64 mb-8 h-auto"
-            />
+          <div className="z-10 text-center flex flex-col justify-center items-center">
+            <svg
+              width="16rem"
+              height="auto"
+              viewBox="0 0 1024 307"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <text
+                x="10"
+                y="200"
+                font-family="Times New Roman, Times, serif"
+                font-size="250"
+                font-weight="bold"
+              >
+                <tspan fill="red">Bio</tspan>
+                <tspan fill="green">Sarthi</tspan>
+              </text>
+            </svg>
 
             <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-green-600">
               Your Gateway to Biogas Innovation
