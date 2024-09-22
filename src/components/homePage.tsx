@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mic } from "lucide-react";
 import ChatInterface from "./chat-interface";
-import Image from "next/image";
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
   const [inputText, setInputText] = useState("");
